@@ -2,7 +2,9 @@
 
 Clone repo:
 ```sh
-git clone https://github.com/d1ys3nk0/docker-compose-boilerplate.git
+cd /opt
+git clone https://github.com/d1ys3nk0/docker-compose-boilerplate.git apps
+cd /opt/apps
 ```
 
 Create configs:
@@ -19,6 +21,7 @@ vi .env
 
 Start apps:
 ```sh
+make start-infra
 make init
 make start
 ```
