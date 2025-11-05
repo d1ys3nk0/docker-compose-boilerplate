@@ -4,6 +4,9 @@ PWD := $(shell pwd)
 help:
 	@grep -E '^[a-zA-Z_0-9-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2}'
 
+gh: ## Open GitHub repository
+	open https://github.com/d1ys3nk0/docker-compose-boilerplate
+
 setup: ## Init
 	cp --update=none .samples/.env .env
 	cp .samples/docker-compose.init.yml docker-compose.init.yml
