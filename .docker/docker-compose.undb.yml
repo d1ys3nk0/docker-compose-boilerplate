@@ -1,0 +1,21 @@
+services:
+  undb:
+    image: ${UNDB_IMAGE}
+    environment:
+      LOG_LEVEL: info
+      UNDB_ADMIN_EMAIL: ${DEF_USER}
+      UNDB_ADMIN_PASSWORD: ${DEF_PASS}
+      UNDB_DISABLE_REGISTRATION: true
+      UNDB_DB_PROVIDER: postgres
+      UNDB_DB_POSTGRES_URL: postgresql://${PG_USER}:${PG_PASS}@${PG_HOST}:${PG_PORT}/undb
+      UNDB_STORAGE_PROVIDER: minio
+      UNDB_STORAGE_PRIVATE_BUCKET: undb-private
+      UNDB_MINIO_STORAGE_USE_SSL: false
+      UNDB_MINIO_STORAGE_ENDPOINT: ${MINIO_HOST}
+      UNDB_MINIO_STORAGE_PORT: ${MINIO_PORT}
+      UNDB_MINIO_STORAGE_ACCESS_KEY: ${MINIO_ACCESS_KEY}
+      UNDB_MINIO_STORAGE_SECRET_KEY: ${MINIO_SECRET_KEY}
+      UNDB_BASE_URL: ${UNDB_SCHEME}://${UNDB_DOMAIN}
+    ports:
+      - ${UNDB_PORT}:3721
+    restart: unless-stopped

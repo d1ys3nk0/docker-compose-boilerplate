@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: ${PG_IMAGE}
+    environment:
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASS}
+    ports:
+      - "5432:5432"
+    restart: unless-stopped

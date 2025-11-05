@@ -1,0 +1,5 @@
+.env*
+!.env.sample
+
+/docker-compose.yml
+/docker-compose.init.yml

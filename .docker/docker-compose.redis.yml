@@ -1,0 +1,6 @@
+services:
+  redis:
+    image: ${REDIS_IMAGE}
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASS}
+    restart: unless-stopped
