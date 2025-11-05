@@ -13,22 +13,22 @@ setup: ## Init
 	cp .samples/docker-compose.yml docker-compose.yml
 
 init: ## Init infra
-	./env docker compose -f docker-compose.yml -f docker-compose.init.yml up postgres-init minio-init
+	bin/env docker compose -f docker-compose.yml -f docker-compose.init.yml up postgres-init minio-init
 
 run: ## Start all apps in foreground
-	./env docker compose up
+	bin/env docker compose up
 
 run-infra: ## Start all infra services in foreground
-	./env docker compose up postgres redis minio
+	bin/env docker compose up postgres redis minio
 
 start: ## Start all apps in background
-	./env docker compose up -d
+	bin/env docker compose up -d
 
 start-infra: ## Start all infra services in background
-	./env docker compose up -d postgres redis minio
+	bin/env docker compose up -d postgres redis minio
 
 stop: ## Stop all apps in background
-	./env docker compose stop
+	bin/env docker compose stop
 
 clean: ## Cleanup
 	rm -f docker-compose.yml docker-compose-init.yml .env
